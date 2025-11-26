@@ -52,6 +52,7 @@ def display_game_state(mistakes, secret_word, guessed_letters):
 def play_game():
     secret_word = get_random_word()
     guessed_letters = []
+    right_letters = []
     mistakes = 0
     print("Welcome to Snowman Meltdown!")
     print("Secret word selected: " + secret_word)  # for testing, later remove this line
@@ -64,8 +65,15 @@ def play_game():
         print("You guessed:", guess)
         if guess not in secret_word:
             mistakes += 1
-    display_game_state(mistakes, secret_word, guessed_letters)
+        else:
+            right_letters.append(guess)
+            if len(right_letters) == len(secret_word):
+                display_game_state(mistakes, secret_word, guessed_letters)
+                print("You won!")
+                return
 
+    display_game_state(mistakes, secret_word, guessed_letters)
+    print("You lost!")
 
 if __name__ == "__main__":
     play_game()
