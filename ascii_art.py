@@ -1,3 +1,5 @@
+"""ASCII art for the snowman"""
+
 STAGES = [
      # Stage 0: Full snowman
      """
