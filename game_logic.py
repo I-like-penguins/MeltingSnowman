@@ -28,7 +28,7 @@ def play_game():
     right_letters = []
     mistakes = 0
     print("Welcome to Snowman Meltdown!")
-    print("Secret word selected: " + secret_word)  # for testing, later remove this line
+
     while mistakes < 3 or "_" in secret_word:
         display_game_state(mistakes, secret_word, guessed_letters)
 
