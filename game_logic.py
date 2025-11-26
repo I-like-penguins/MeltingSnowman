@@ -34,12 +34,15 @@ def play_game():
 
         # For now, simply prompt the user once:
         guess = input("Guess a letter: ").lower()
+        if guess[0].isalpha() == False:
+            print("Please enter a single letter.")
+            continue
         guessed_letters.append(guess[0])
         print("You guessed:", guess)
         if guess not in secret_word:
             mistakes += 1
         else:
-            for i in range(secret_word.count(guess)): # multiple occurences of the same letter
+            for i in range(secret_word.count(guess)): # multiple occurrences of the same letter
                 right_letters.append(guess)
             if len(right_letters) == len(secret_word):
                 display_game_state(mistakes, secret_word, guessed_letters)
