@@ -66,7 +66,8 @@ def play_game():
         if guess not in secret_word:
             mistakes += 1
         else:
-            right_letters.append(guess)
+            for i in range(secret_word.count(guess)): # multiple occurences of the same letter
+                right_letters.append(guess)
             if len(right_letters) == len(secret_word):
                 display_game_state(mistakes, secret_word, guessed_letters)
                 print("You won!")
